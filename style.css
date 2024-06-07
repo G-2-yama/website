@@ -3,18 +3,32 @@
     padding: none;
 }
 
-html{
+html {
     overflow: hidden;
     background-image: linear-gradient(#0000005e, #0000007c), url('./images/tech23.png');
     background-size: cover;
 }
 
-main{
+body {
+    font-family: "游明朝";
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+/* main */
+
+main {
     height: 100vh;
     width: 100vw;
 }
 
-.input-box{
+
+
+.input-box {
     position: absolute;
     top: 50%;
     left: 50%;

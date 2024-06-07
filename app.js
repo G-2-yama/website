@@ -1,23 +1,40 @@
-const element = document.querySelector(".input-box");
+const typeTarget = document.querySelectorAll('.typing');
 
-/***************************************/
-
-element.addEventListener('input', handleChange);
-
-/***************************************/
-
-function handleChange(event) {
-    const val = event.target.value;
-    if (val === "g^2") {
-        window.open("http://g2yamanashi.web.fc2.com/index.html", '_blank', 'noreferrer');
-    }
-    if (val === "x") {
-        window.open("https://x.com/g2_yama", '_blank', 'noreferrer');
-    }
-    if (val === "youtube") {
-        window.open("https://www.youtube.com/@g_2827", '_blank', 'noreferrer');
-    }
-    if (val === "booth") {
-        window.open("https://g2yama.booth.pm/", '_blank', 'noreferrer');
-    }
+let options = {
+    rootMargin: '0px',
+    threshold: .5
 }
+
+let callback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.intersectionRatio > .5 && entry.target.classList.contains('active') == false) {
+            let typeContent = entry.target.innerHTML;
+            typeContent = typeContent.replace(/<br>/g, '\n');
+            let typeSprit = typeContent.split(/(<[^>]+>|[^<])/).filter(Boolean);
+            let typeSpeed = entry.target.getAttribute('data-speed');
+            entry.target.innerHTML = '';
+            entry.target.classList.add('active');
+
+            let typeLength = 0;
+            let typeInterval = setInterval(() => {
+                if (typeSprit[typeLength] == undefined) {
+                    clearInterval(typeInterval);
+                    return false;
+                }
+                if (typeSprit[typeLength] === '\n') {
+                    entry.target.innerHTML += '<br>';
+                } else {
+                    entry.target.innerHTML += typeSprit[typeLength];
+                }
+                typeLength++;
+            }, typeSpeed);
+
+        }
+    });
+} 
+
+let observer = new IntersectionObserver(callback, options);
+
+typeTarget.forEach(e => {
+    observer.observe(e);
+});

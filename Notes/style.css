@@ -125,7 +125,6 @@ header {
 /* main */
 .main {
     position: relative;
-    /* height: 670px; */
 
     background-color: #ffffff;
 }
@@ -146,6 +145,16 @@ header {
 
 .main a:hover{
     color: rgb(228, 190, 133);
+}
+
+code {
+    display: inline-block;
+    padding: 0.1em 0.25em;
+    color: #000000;
+    background-color: #e7edf3;
+    border-radius: 2px;
+    border: solid 1px #d6dde4;
+    font-family: math;
 }
 
 /* footer */

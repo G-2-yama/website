@@ -27,10 +27,42 @@
     <section class="main">
         <div class="wrap">
             <div class="main-text">
-                <h1>Notes</h1>
-                <h2>Gitに関すること</h2>
+                <h1>Notes&thinsp;:&thinsp;Gitコマンドが使えない場合の対処法</h1>
+                
+                <h2 id="1">1&emsp;Git環境の確認</h2>
                 <p><br>
-                    <a href="./GitConf.html"></a>
+                    まずは、自身のコンピュータ内にGitを使用するための環境が入っているか確認します。<br>
+                    (ただしGitHub Desktopなどのサービスを使用する場合、この項は関係ありません)<br><br>
+                    ターミナルやコマンドプロンプト(適当なCLI)を開いて<br>
+                    &emsp;<code>git -v</code><br>
+                    を入力します。<br><br>
+                    ここで何も表示されないかエラーが出る場合は、Git環境がインストールされていないか、Pathが適切に設定されていないので、<a href="#2">次の項</a>に進んでGitをインストールしてください。<br>
+                    ここで&thinsp;<code>git version 2.44.1.windows.1</code>&thinsp;みたいな表示がされた場合、インストールはされているため<a href="#4">第4項</a>に進んでください。<br><br>
+                </p>
+
+                <h2 id="2">2&emsp;Gitコマンド群のインストール</h2>
+                <p><br>
+                    まずは、
+                    Git環境を構築するために、以下のリンクからGitのコマンド環境をダウンロードしてください。<br>
+                    <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer"><b>&emsp;Gitのインストール</b></a><br><br>
+                    不明な点があれば<a href="https://sukkiri.jp/technologies/devtools/git/git_win.html"><b>Gitインストール手順＜Windows向け＞</b></a>を参照してください。<br><br>
+                </p>
+
+                <h2 id="3">3&emsp;Pathの確認</h2>
+                <p><br>
+                    Gitがインストールされているのにコマンドが使えない場合、コマンドを使うためのPathが適切に設定されていない可能性があります。<br><br>
+                    Pathというのは、コマンドという道具を仕舞っている場所を管理するリストです。Pathが適切に設定されていないと、どこかにコマンドが置いてあったとしても、使いたいときに使えないという状況に陥ります。<br><br>
+                    Pathを設定するには<br>
+                    ①&emsp;"Windowsキー + R"を押して、"sysdm.cpl"と入力します。<br>
+                    ②&emsp;そこで出てきたシステムのプロパティの中の"詳細設定"タブを選択し、"環境変数"をクリックします。<br>
+                    ③&emsp;システム環境変数(たぶん下のセクション)の中の"Path"を選択し、"編集"をクリックします。<br>
+                    ④&emsp;一覧にGitコマンドのパスが含まれていることを確認してください。(C:\ProgramFiles\Git\binとか、C:\ProgramFiles\Git\cmdみたいなやつ)<br>
+                    ⑤&emsp;一覧に無い場合は、"新規"をクリックして、Gitのインストールディレクトリ(一般的にはC:\ProgramFiles\Git\bin、あるいはC:\ProgramFiles\Git\cmd)を追加してください。<br><br>
+                </p>
+
+                <h2 id="4">4&emsp;関連項目</h2>
+                <p><br>
+                    <a href="./GitOnVS.html"><b>Visual StudioでGitが使えない場合の対処法</b></a>
                 </p>
             </div>
         </div>
